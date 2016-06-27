@@ -35,6 +35,17 @@ class Motion:
     def set_markers(self, value):
         self._markers = value
 
+    def __str__(self):
+        return (
+            "Motion class instance\n" +
+            "num_postures:{} \tfps:{} \tmax_frame:{} \n".format(
+                len(self._postures),
+                self.get_fps(),
+                self.get_max_frame()
+            ) +
+            "markers:{}".format(",".join(self.get_markers()))
+        )
+
 
 class Posture:
     def __init__(self):
@@ -63,3 +74,8 @@ class Posture:
 
     def contains(self, key):
         return key in self._joint_positions
+
+    def __str__(self):
+        return "Posture class instance {} joints".format(
+            len(self._joint_positions)
+        )
