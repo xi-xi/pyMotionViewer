@@ -43,10 +43,10 @@ class Posture:
     def __len__(self):
         return len(self._joint_positions)
 
-    def __getitem(self, key):
+    def __getitem__(self, key):
         return self._joint_positions[key]
 
-    def __setitem(self, key, value):
+    def __setitem__(self, key, value):
         self._joint_positions[key] = value
 
     def __iter__(self):
