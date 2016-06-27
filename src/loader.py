@@ -48,7 +48,8 @@ def build_posture_from_csv(row, markers):
     p = df.Posture()
     frame = int(row[0])
     for name, x, y, z in zip(markers[2::3], row[2::3], row[3::3], row[4::3]):
-        p[name] = np.array([float(x), float(y), float(z)])
+        if x != "" and y != "" and z != "":
+            p[name] = np.array([float(x), float(y), float(z)])
     return frame, p
 
 
@@ -126,7 +127,8 @@ def build_posture_from_trc(row, markers):
     p = df.Posture()
     frame = int(row[0])
     for name, x, y, z in zip(markers[2::3], row[2::3], row[3::3], row[4::3]):
-        p[name] = np.array([float(x), float(y), float(z)])
+        if x != "" and y != "" and z != "":
+            p[name] = np.array([float(x), float(y), float(z)])
     return frame, p
 
 
